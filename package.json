@@ -1,0 +1,31 @@
+{
+  "name": "devcanvas",
+  "version": "1.0.0",
+  "description": "A lightweight canvas framework",
+  "module": "dist/index.js",
+  "scripts": {
+    "build": "webpack",
+    "serve": "webpack-dev-server",
+    "prod": "tsc && tsc -m es6 --outDir dist/lib-esm && webpack --mode=production"
+  },
+  "author": "Devyn Cyphers",
+  "license": "ISC",
+  "devDependencies": {
+    "awesome-typescript-loader": "5.0.0-1",
+    "babel": "^6.23.0",
+    "copy-webpack-plugin": "^4.5.1",
+    "html-webpack-plugin": "^3.0.6",
+    "parallel-webpack": "^2.3.0",
+    "typescript": "^2.7.2",
+    "uglifyjs-webpack-plugin": "1.2.4",
+    "webpack": "^4.1.1",
+    "webpack-bundle-analyzer": "2.11.1",
+    "webpack-butternut-plugin": "^0.3.4",
+    "webpack-cli": "^2.0.11",
+    "webpack-dev-server": "^3.1.1",
+    "webpack-jarvis": "0.3.0"
+  },
+  "dependencies": {
+    "rxjs": "^6.0.0-alpha.4"
+  }
+}
