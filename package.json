@@ -1,12 +1,12 @@
 {
   "name": "devcanvas",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A lightweight canvas framework",
   "module": "dist/index.js",
   "scripts": {
     "build": "webpack",
     "serve": "webpack-dev-server",
-    "prod": "tsc && tsc -m es6 --outDir dist/lib-esm && webpack --mode=production"
+    "prod": "webpack --mode=production"
   },
   "author": "Devyn Cyphers",
   "license": "ISC",
