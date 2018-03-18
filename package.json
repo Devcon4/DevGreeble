@@ -10,6 +10,8 @@
   },
   "author": "Devyn Cyphers",
   "license": "ISC",
+  "repository": "https://github.com/Devcon4/DevCanvas",
+  "bugs": "https://github.com/Devcon4/DevCanvas/issues",
   "devDependencies": {
     "awesome-typescript-loader": "5.0.0-1",
     "babel": "^6.23.0",
