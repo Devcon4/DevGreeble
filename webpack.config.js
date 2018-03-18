@@ -7,6 +7,10 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const Jarvis = require('webpack-jarvis');
 const createVariants = require('parallel-webpack').createVariants;
 
+function capitalizeWord(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 function createConfig(options) {
   return {
     resolve: {
@@ -18,7 +22,7 @@ function createConfig(options) {
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: '[name].' + options.target + '.js',
-        library: 'devCanvas',
+        library: 'devCanvas' + options.target === 'umd' ? '' : capitalizeWord(options.target),
         libraryTarget: options.target
     },
     devServer: {
