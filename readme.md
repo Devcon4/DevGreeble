@@ -1,5 +1,6 @@
 # DevCanvas
 A lightweight canvas framework.
+[![npm version](https://badge.fury.io/js/devcanvas.svg)](https://badge.fury.io/js/devcanvas)
 
 ## Installing
 - Install using npm.
