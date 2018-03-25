@@ -72,5 +72,5 @@ function createConfig(options) {
 }
 
 module.exports = createVariants({
-  target: ['var', 'commonjs2', 'umd', 'amd']
+  target: ['umd']
 }, createConfig);

@@ -1,12 +1,13 @@
 {
   "name": "devcanvas",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A lightweight canvas framework",
-  "module": "dist/index.js",
+  "main": "dist/main.umd.js",
+  "module": "dist/main.es.js",
   "scripts": {
     "build": "webpack",
     "serve": "webpack-dev-server",
-    "prod": "webpack --mode=production"
+    "prod": "webpack --mode=production && rollup -c"
   },
   "author": "Devyn Cyphers",
   "license": "ISC",
@@ -18,6 +19,9 @@
     "copy-webpack-plugin": "^4.5.1",
     "html-webpack-plugin": "^3.0.6",
     "parallel-webpack": "^2.3.0",
+    "rollup": "^0.57.1",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
     "typescript": "^2.7.2",
     "uglifyjs-webpack-plugin": "1.2.4",
     "webpack": "^4.1.1",
