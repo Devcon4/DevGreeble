@@ -1,9 +1,9 @@
 {
   "name": "devcanvas",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A lightweight canvas framework",
-  "main": "dist/main.umd.js",
-  "module": "dist/main.es.js",
+  "main": "dist/main.es.js",
+  "module": "src/index.js",
   "scripts": {
     "build": "webpack",
     "serve": "webpack-dev-server",
