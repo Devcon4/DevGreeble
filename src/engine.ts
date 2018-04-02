@@ -45,7 +45,7 @@ export class Engine {
 
     draw() {
         this.ctx.clearRect(-this.size.halfWidth, -this.size.halfHeight, this.size.width, this.size.height);
-        this.gameObjects.forEach(obj => obj.render(obj));
+        this.gameObjects.forEach(obj => obj.render(this.ctx)(obj));
     }
 
     physics() {
@@ -253,7 +253,7 @@ export class GameObject<T> {
     public boundingBox: Rect;
     public name: string;
 
-    public render: (obj: GameObject<T>) => void;
+    public render: (ctx: CanvasRenderingContext2D) => (obj: GameObject<T>) => void;
     public physics: (obj: GameObject<T>) => void = () => { };
     public onCollision?: <U>(hit: CollisionHit<U, T>) => void = () => { };
     public onClick?: (obj: GameObject<T>) => void;
