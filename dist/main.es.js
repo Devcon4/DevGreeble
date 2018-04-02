@@ -7160,8 +7160,9 @@ var Engine = (function () {
         };
     };
     Engine.prototype.draw = function () {
+        var _this = this;
         this.ctx.clearRect(-this.size.halfWidth, -this.size.halfHeight, this.size.width, this.size.height);
-        this.gameObjects.forEach(function (obj) { return obj.render(obj); });
+        this.gameObjects.forEach(function (obj) { return obj.render(_this.ctx)(obj); });
     };
     Engine.prototype.physics = function () {
         this.gameObjects.forEach(function (obj) {

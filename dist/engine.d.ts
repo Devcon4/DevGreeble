@@ -55,7 +55,7 @@ export declare class GameObject<T> {
     props: T;
     boundingBox: Rect;
     name: string;
-    render: (obj: GameObject<T>) => void;
+    render: (ctx: CanvasRenderingContext2D) => (obj: GameObject<T>) => void;
     physics: (obj: GameObject<T>) => void;
     onCollision?: <U>(hit: CollisionHit<U, T>) => void;
     onClick?: (obj: GameObject<T>) => void;
