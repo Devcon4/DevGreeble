@@ -1,6 +1,6 @@
 {
   "name": "devcanvas",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "A lightweight canvas framework",
   "main": "dist/main.es.js",
   "module": "src/index.js",

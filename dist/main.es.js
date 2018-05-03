@@ -7151,7 +7151,9 @@ var Engine = (function () {
             halfWidth: this.canvas.width * 0.5,
             halfHeight: this.canvas.height * 0.5
         };
-        this.ctx.translate(this.size.halfWidth, this.size.halfHeight);
+        if (this.ctx instanceof CanvasRenderingContext2D) {
+            this.ctx.translate(this.size.halfWidth, this.size.halfHeight);
+        }
     };
     Engine.prototype.getMousePos = function (event) {
         return {
@@ -7161,7 +7163,9 @@ var Engine = (function () {
     };
     Engine.prototype.draw = function () {
         var _this = this;
-        this.ctx.clearRect(-this.size.halfWidth, -this.size.halfHeight, this.size.width, this.size.height);
+        if (this.ctx instanceof CanvasRenderingContext2D) {
+            this.ctx.clearRect(-this.size.halfWidth, -this.size.halfHeight, this.size.width, this.size.height);
+        }
         this.gameObjects.forEach(function (obj) { return obj.render(_this.ctx)(obj); });
     };
     Engine.prototype.physics = function () {

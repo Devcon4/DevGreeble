@@ -13,7 +13,7 @@ export declare class Engine {
         halfHeight: number;
     };
     gameObjects: GameObject<any>[];
-    constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D);
+    constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D | WebGLRenderingContext);
     resize(): void;
     getMousePos(event: MouseEvent): {
         x: number;
@@ -55,7 +55,7 @@ export declare class GameObject<T> {
     props: T;
     boundingBox: Rect;
     name: string;
-    render: (ctx: CanvasRenderingContext2D) => (obj: GameObject<T>) => void;
+    render: <T extends CanvasRenderingContext2D | WebGLRenderingContext>(ctx: T) => (obj: GameObject<T>) => void;
     physics: (obj: GameObject<T>) => void;
     onCollision?: <U>(hit: CollisionHit<U, T>) => void;
     onClick?: (obj: GameObject<T>) => void;
