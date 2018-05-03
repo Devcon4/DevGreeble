@@ -16,7 +16,7 @@ export class Engine {
     size: { width: number, height: number, halfWidth: number, halfHeight: number };
     gameObjects: GameObject<any>[] = [];
 
-    constructor(private canvas: HTMLCanvasElement, private ctx: CanvasRenderingContext2D) {
+    constructor(private canvas: HTMLCanvasElement, private ctx: CanvasRenderingContext2D | WebGLRenderingContext) {
         this.resize();
         this.frame.subscribe(this.physics.bind(this));
         this.frame.subscribe(this.draw.bind(this));
@@ -33,7 +33,9 @@ export class Engine {
             halfWidth: this.canvas.width * 0.5,
             halfHeight: this.canvas.height * 0.5
         };
-        this.ctx.translate(this.size.halfWidth, this.size.halfHeight);
+        if(this.ctx instanceof CanvasRenderingContext2D) {
+            this.ctx.translate(this.size.halfWidth, this.size.halfHeight);
+        }
     }
 
     getMousePos(event: MouseEvent) {
@@ -44,7 +46,9 @@ export class Engine {
     }
 
     draw() {
-        this.ctx.clearRect(-this.size.halfWidth, -this.size.halfHeight, this.size.width, this.size.height);
+        if(this.ctx instanceof CanvasRenderingContext2D) {
+            this.ctx.clearRect(-this.size.halfWidth, -this.size.halfHeight, this.size.width, this.size.height);
+        }
         this.gameObjects.forEach(obj => obj.render(this.ctx)(obj));
     }
 
@@ -253,7 +257,7 @@ export class GameObject<T> {
     public boundingBox: Rect;
     public name: string;
 
-    public render: (ctx: CanvasRenderingContext2D) => (obj: GameObject<T>) => void;
+    public render: <T extends CanvasRenderingContext2D | WebGLRenderingContext>(ctx: T) => (obj: GameObject<T>) => void;
     public physics: (obj: GameObject<T>) => void = () => { };
     public onCollision?: <U>(hit: CollisionHit<U, T>) => void = () => { };
     public onClick?: (obj: GameObject<T>) => void;
