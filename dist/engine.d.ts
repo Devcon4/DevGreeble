@@ -55,9 +55,9 @@ export declare class GameObject<T> {
     props: T;
     boundingBox: Rect;
     name: string;
-    render: <T extends CanvasRenderingContext2D | WebGLRenderingContext>(ctx: T) => (obj: GameObject<T>) => void;
+    render: <U extends CanvasRenderingContext2D | WebGLRenderingContext>(ctx: U) => (obj: GameObject<T>) => void;
     physics: (obj: GameObject<T>) => void;
-    onCollision?: <U>(hit: CollisionHit<U, T>) => void;
+    onCollision?: <V>(hit: CollisionHit<V, T>) => void;
     onClick?: (obj: GameObject<T>) => void;
     init: (obj: GameObject<T>) => void;
     constructor(...args: Partial<GameObject<T>>[]);

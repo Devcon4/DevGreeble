@@ -257,9 +257,9 @@ export class GameObject<T> {
     public boundingBox: Rect;
     public name: string;
 
-    public render: <T extends CanvasRenderingContext2D | WebGLRenderingContext>(ctx: T) => (obj: GameObject<T>) => void;
+    public render: <U extends CanvasRenderingContext2D | WebGLRenderingContext>(ctx: U) => (obj: GameObject<T>) => void;
     public physics: (obj: GameObject<T>) => void = () => { };
-    public onCollision?: <U>(hit: CollisionHit<U, T>) => void = () => { };
+    public onCollision?: <V>(hit: CollisionHit<V, T>) => void = () => { };
     public onClick?: (obj: GameObject<T>) => void;
     public init: (obj: GameObject<T>) => void;
 
